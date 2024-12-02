@@ -1,5 +1,5 @@
 list1, list2 = [], []
-with open("day1/input.txt") as f:
+with open("inputs/day1.txt") as f:
     for line in f.readlines():
         split = line.split()
         list1.append(int(split[0]))

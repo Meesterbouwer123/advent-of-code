@@ -12,7 +12,7 @@ def issafe(list):
         last = current
     return True
 
-with open("day2/input.txt") as f:
+with open("inputs/day2.txt") as f:
     lines = f.readlines()
 
 sum = 0
