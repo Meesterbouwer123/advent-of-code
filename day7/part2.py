@@ -19,11 +19,11 @@ def can_produce(final, numbers):
     return False
 
 import time
-start = time.time()
+start = time.time() * 1000
 
 with open('inputs/day7.txt') as f:
     lines = f.readlines()
 
 calibrations = [(int(line.split(":")[0]), [int(x) for x in line.split(": ")[1].split(" ")]) for line in lines]
 print(sum([final for (final, nums) in calibrations if can_produce(final, nums)]))
-print(time.time() - start)
+print("solved in %d milliseconds" %(time.time()*1000 - start))
