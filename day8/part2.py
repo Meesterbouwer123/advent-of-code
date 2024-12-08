@@ -17,12 +17,16 @@ for frequency in frequencies:
     frequencymap = frequencies[frequency]
     for p1 in frequencymap:
         for p2 in frequencymap:
-            if p1 == p2: continue
+            # the points themselves can now also be antinodes
+            if p1 == p2:
+                antinodes.add(p1)
+                continue
+            
             # calculate the antinodes
             delta = (p1[0] - p2[0], p1[1] - p2[1])
-            for i in range(-width, width):
-                antinode = (p1[0] + i*delta[0], p1[1] + i*delta[1])
-                if antinode[0] >= 0 and antinode[0] < width and antinode[1] >= 0 and antinode[1] < height:
-                    antinodes.add(antinode)
+            antinode = (p1[0] + delta[0], p1[1] + delta[1])
+            while antinode[0] >= 0 and antinode[0] < width and antinode[1] >= 0 and antinode[1] < height:
+                antinodes.add(antinode)
+                antinode = (antinode[0] + delta[0], antinode[1] + delta[1])
 
 print(len(antinodes))
