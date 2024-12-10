@@ -1,4 +1,5 @@
 def trailhead_score(trailmap, x, y):
+	# floodfill to see which tiles with 9 are reachable by us
 	height = len(trailmap)
 	width = len(trailmap[0])
 	todo = [(x, y)]
