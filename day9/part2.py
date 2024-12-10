@@ -2,7 +2,7 @@ with open('inputs/day9.txt') as f:
 	compacted = f.readline().strip()
 
 import time
-start = time.time()
+starttime = time.time()
 # expand the filesystem representation
 fs = []
 files = {}
@@ -23,9 +23,9 @@ for file in range(max(files.keys()), 0, -1):
 	start = fs.index(file)
 	for i in range(start):
 		if all(fs[i+offset] == None for offset in range(filesize)):
-			fs = fs[:i] + fs[start:start+filesize] + fs[i+filesize:start] + fs[i:i+filesize] + fs[start+filesize:]
+			fs[i:i+filesize], fs[start:start+filesize] = fs[start:start+filesize], fs[i:i+filesize]
 			break
 	
 # calculate checksum
 print(sum([pos * block for pos, block in enumerate(fs) if block != None]))
-print(f"done in %d seconds" % (time.time() - start))
+print(f"done in %d seconds" % (time.time() - starttime))
