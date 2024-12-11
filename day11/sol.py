@@ -32,5 +32,8 @@ with open("inputs/day11.txt") as f:
 	stones = [int(x) for x in f.readline().strip().split(" ")]
 
 # print solutions
+import time
+starttime = time.time()*1000
 print('p1:', sum(solve(stone, 25) for stone in stones))
 print('p2:', sum(solve(stone, 75) for stone in stones))
+print("solved in %d milliseconds"% (time.time()*1000 - starttime))
