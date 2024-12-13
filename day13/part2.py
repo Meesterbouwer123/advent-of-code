@@ -1,3 +1,6 @@
+## I KIND OF CHEATED HERE
+## I saw someone else solve part 2 using z3, and based my code off of his work.
+
 # parse file
 machines = []
 import re, z3
